@@ -34,7 +34,7 @@ def test_events_page():
         response = client.get("/events")
 
     assert response.status_code == 200
-    assert "Search and manage campus events" in response.text
+    assert "Choose your next discovery" in response.text
     assert database.events.count_documents({}) > 0
 
 
@@ -42,11 +42,12 @@ def test_event_search():
     with client:
         response = client.get(
             "/events",
-            params={"q": "MongoDB"},
+            params={"q": "Quantum Puzzle"},
         )
 
     assert response.status_code == 200
-    assert "MongoDB" in response.text
+    assert "Quantum Puzzle Room" in response.text
+    assert "Satellite Signal Sprint" not in response.text
 
 
 def test_event_category_filter():
@@ -98,7 +99,7 @@ def test_users_page():
         response = client.get("/users")
 
     assert response.status_code == 200
-    assert "Search and manage campus users" in response.text
+    assert "Meet the Orbit crew" in response.text
     assert database.users.count_documents({}) > 0
 
 

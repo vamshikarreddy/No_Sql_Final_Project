@@ -12,11 +12,11 @@ class Settings:
     )
     mongodb_database: str = os.getenv(
         "MONGODB_DATABASE",
-        "campus_events",
+        "orbit_campus",
     )
     app_name: str = os.getenv(
         "APP_NAME",
-        "Campus Events Manager",
+        "Orbit — Campus Discovery",
     )
     debug: bool = os.getenv("DEBUG", "false").lower() == "true"
 

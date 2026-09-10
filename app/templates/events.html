@@ -3,9 +3,9 @@
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
     <div>
-        <h1 class="h2 mb-1">Events</h1>
+        <p class="eyebrow">DISCOVER / CONNECT / PARTICIPATE</p><h1 class="h2 mb-1">Mission catalogue</h1>
         <p class="text-muted mb-0">
-            Search and manage campus events.
+            Choose your next discovery. Explore labs, challenges and conversations.
         </p>
     </div>
 
@@ -210,14 +210,15 @@
 
 <div class="d-flex justify-content-between mb-3">
     <p class="text-muted mb-0">
-        {{ events|length }} event(s) found
+        {{ events|length }} experiences found
     </p>
 </div>
 
 <div class="row g-4">
     {% for event in events %}
-    <div class="col-md-6 col-xl-4">
-        <div class="card h-100 shadow-sm">
+    <div class="col-md-6">
+        <div class="card h-100 shadow-sm event-card">
+            <div class="event-card-banner tone-{{ loop.index0 % 4 }}"><div class="date-tile"><strong>{{ event.startDate.strftime('%d') }}</strong><span>{{ event.startDate.strftime('%b %Y') }}</span></div><span class="banner-category">{{ event.category }}</span><span class="banner-ring" aria-hidden="true"></span></div>
             <div class="card-body">
                 <div class="d-flex justify-content-between gap-2 mb-2">
                     <span class="badge text-bg-primary">
@@ -270,6 +271,8 @@
                     </dd>
                 </dl>
 
+                <div class="occupancy-line"><span>{{ event.capacity - event.registrationCount }} places remaining</span><span>{{ ((event.registrationCount / event.capacity) * 100)|round|int }}% booked</span></div>
+                <progress class="occupancy-meter" value="{{ event.registrationCount }}" max="{{ event.capacity }}" aria-label="Places booked for {{ event.title }}">{{ event.registrationCount }} / {{ event.capacity }}</progress>
                 <div class="mb-3">
                     {% for tag in event.tags %}
                     <span class="badge rounded-pill text-bg-light border">
@@ -284,7 +287,7 @@
                     href="/events/{{ event._id }}"
                     class="btn btn-sm btn-primary"
                 >
-                    View details
+                    Explore event ↗
                 </a>
                 <a
                     href="/events/{{ event._id }}/edit"

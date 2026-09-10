@@ -1,0 +1,38 @@
+{
+  "dashboard": {
+    "result": {
+      "type": "string",
+      "value": "{\"width\":390,\"scroll\":390}"
+    }
+  },
+  "events": {
+    "result": {
+      "type": "string",
+      "value": "{\"width\":390,\"scroll\":390}"
+    }
+  },
+  "event-detail": {
+    "result": {
+      "type": "string",
+      "value": "{\"width\":390,\"scroll\":390}"
+    }
+  },
+  "community": {
+    "result": {
+      "type": "string",
+      "value": "{\"width\":390,\"scroll\":390}"
+    }
+  },
+  "insights": {
+    "result": {
+      "type": "string",
+      "value": "{\"width\":390,\"scroll\":390}"
+    }
+  },
+  "event-form": {
+    "result": {
+      "type": "string",
+      "value": "{\"width\":390,\"scroll\":390}"
+    }
+  }
+}

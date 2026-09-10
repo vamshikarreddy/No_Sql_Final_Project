@@ -1,6 +1,10 @@
-# Campus Events Manager
+# Orbit — Campus Discovery
 
-Campus Events Manager is a web application developed for the NoSQL Development Project. It allows a university campus to manage users, events and event registrations while demonstrating practical MongoDB document modelling, CRUD operations, array operations, referencing, embedding and aggregation pipelines.
+Orbit — Campus Discovery is a web application developed for the NoSQL Development Project. It allows a university campus to manage users, events and event registrations while demonstrating practical MongoDB document modelling, CRUD operations, array operations, referencing, embedding and aggregation pipelines.
+
+The redesigned interface uses horizontal navigation, a mission-control dashboard, science event cards, and a navy, blue and coral visual theme. All figures are calculated from MongoDB. The fictional Orbit dataset uses a separate `orbit_campus` database, preserving existing `gather_collective` and `campus_events` data. Event dates are relative to the day the seed script runs.
+
+Fresh desktop and mobile screenshots are available in `report/orbit-screenshots/`. The existing PDF and older screenshots in `report/` document the earlier interface; the updated LaTeX source is in `report/overleaf-gather/main.tex`; compile it in Overleaf for the current report.
 
 ## Author
 
@@ -227,8 +231,8 @@ The default local configuration is:
 
 ```env
 MONGODB_URI=mongodb://localhost:27017
-MONGODB_DATABASE=campus_events
-APP_NAME=Campus Events Manager
+MONGODB_DATABASE=orbit_campus
+APP_NAME=Orbit — Campus Discovery
 DEBUG=false
 ```
 
@@ -260,13 +264,15 @@ python -m scripts.seed_database
 
 The seed script inserts:
 
-- 15 users
-- 18 events
+- 42 users
+- 30 events
 - Multiple departments and roles
 - Multiple categories and tags
 - Past and future events
 - Events with and without registrations
-- More than 40 embedded registrations
+- 445 embedded registrations
+- 11 past and 19 future events at seed time
+- 7 programme categories, three full events, three unbooked events, and six members without registrations
 
 The seed script resets only the project’s `users` and `events` collections before reinserting the dataset.
 
@@ -317,6 +323,11 @@ The tests verify:
 - Static files
 - Invalid IDs
 - Custom 404 handling
+- Replacement dataset integrity and date/reference consistency
+- Every seeded event and member detail/edit page
+- User and event creation, editing, deletion, and duplicate emails
+- Registration, duplicate booking, capacity enforcement, cancellation, and referenced-user protection
+- Status filters and empty results
 
 ## Reproducing the Project
 
