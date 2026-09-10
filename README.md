@@ -8,7 +8,7 @@ Fresh desktop and mobile screenshots are available in `report/orbit-screenshots/
 
 ## Author
 
-Sai Kishan Kumar
+Vamshikar Thummala Reddy
 
 ## Technology Stack
 
